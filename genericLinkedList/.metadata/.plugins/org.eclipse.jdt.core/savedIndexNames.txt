@@ -1,0 +1,2 @@
+INDEX VERSION 1.130+/Users/dominikgapp/Desktop/Schule /Schuljahr 4/Programmieren/Neuer Ordner/.metadata/.plugins/org.eclipse.jdt.core
+4159780419.index

@@ -1,0 +1,10 @@
+package generischeLinkedList;
+
+public class Main {
+	
+	LinkedList<String> lls = new LinkedList <String>(); 
+	LinkedList<Integer> lli = new LinkedList<Integer>(); 
+	
+	
+
+}
