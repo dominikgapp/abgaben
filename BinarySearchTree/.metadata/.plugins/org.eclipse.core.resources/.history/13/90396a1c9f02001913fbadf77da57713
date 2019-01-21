@@ -1,0 +1,29 @@
+
+public class Tree {
+	
+	
+	private Node head = null; 
+	private Node bigger = null; 
+	private Node smaller = null; 
+	
+	
+	public void addValue (int value)
+	{
+		Node node = new Node(value);
+		if (head == null) {
+			head = node;
+			return; 
+		} 
+		
+			
+		while (head != null) {	
+			
+		if (value > node.getValue()) {
+			
+		}
+	
+		}
+		
+	}
+
+}

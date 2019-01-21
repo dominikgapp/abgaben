@@ -1,0 +1,70 @@
+
+public class Tree {
+	
+	
+	private Node head = null; 
+	
+	public Tree () {
+		
+	}
+	
+	public void addValue (int value)
+	{
+		//erstes Element 
+		Node node = new Node(value);
+		if (head == null) {
+			head = node;
+			return; 
+		} 
+		
+		//weitere Elemente 
+		Node tmp = head;
+		while (true) {
+			
+			if (node.getValue() < tmp.getValue() && tmp.getSmaller() == null) {
+				tmp.setSmaller(node);
+				break; }
+			
+			if (node.getValue() > tmp.getValue() && tmp.getBigger() == null) {
+				tmp.setBigger(node);
+				break; }  
+			
+			if (node.getValue() < tmp.getValue() && tmp.getSmaller() != null) tmp = tmp.getSmaller(); 
+			if (node.getValue() > tmp.getValue() && tmp.getBigger() != null) tmp = tmp.getBigger(); 
+			
+		}
+		
+		}
+		
+	
+	public Node getNode (int value)
+	{
+		Node tmp = head; 
+		Node fehler = new Node(-1111); 
+		while (value != tmp.getValue())
+		{
+			if (value < tmp.getValue() && tmp.getSmaller()!= null) {
+				tmp = tmp.getSmaller();
+			} else if (value < tmp.getValue() && tmp.getSmaller() == null)
+			{
+				return fehler; 
+			}
+			
+			
+			if (value > tmp.getValue() && tmp.getBigger() != null) {
+				tmp = tmp.getBigger();
+			} else if (value > tmp.getValue() && tmp.getBigger() == null)
+			{
+				return fehler; 
+			}
+		}
+		
+		return tmp; 
+	}
+	
+}
+	
+
+
+		
+ 

@@ -1,0 +1,143 @@
+
+public class Tree {
+	
+	
+	private Node head = null; 
+	
+	public Tree () {
+		
+	}
+	
+	public void addValue (int value)
+	{
+		//erstes Element 
+		Node node = new Node(value);
+		if (head == null) {
+			head = node;
+			return; 
+		} 
+		
+		//weitere Elemente 
+		Node tmp = head;
+		while (true) {
+			
+			if (node.getValue() < tmp.getValue() && tmp.getSmaller() == null) {
+				tmp.setSmaller(node);
+				node.setPrevious(tmp);
+				break; }
+			
+			if (node.getValue() > tmp.getValue() && tmp.getBigger() == null) {
+				tmp.setBigger(node);
+				node.setPrevious(tmp);
+				break; }  
+			
+			if (node.getValue() < tmp.getValue() && tmp.getSmaller() != null) tmp = tmp.getSmaller(); 
+			if (node.getValue() > tmp.getValue() && tmp.getBigger() != null) tmp = tmp.getBigger(); 
+			
+		}
+		
+		}
+		
+	
+	public Node getNode (int value)
+	{
+		Node tmp = head; 
+		Node fehler = new Node(-1111); 
+		while (value != tmp.getValue())
+		{
+			if (value < tmp.getValue() && tmp.getSmaller()!= null) {
+				tmp = tmp.getSmaller();
+			} else if (value < tmp.getValue() && tmp.getSmaller() == null)
+			{
+				return fehler; 
+			}
+			
+			
+			if (value > tmp.getValue() && tmp.getBigger() != null) {
+				tmp = tmp.getBigger();
+			} else if (value > tmp.getValue() && tmp.getBigger() == null)
+			{
+				return fehler; 
+			}
+		}
+		
+		return tmp; 
+	}
+	
+	public void delete(int value)
+	{
+		Node tmp = head;
+		int wert = 0; 
+		
+		//Nach dem zu löschenden Element suchen. 
+		while (value != tmp.getValue())
+		{
+			if (value < tmp.getValue())
+			{
+				tmp = tmp.getSmaller(); 
+			}
+			if (value > tmp.getValue())
+			{
+				tmp = tmp.getBigger(); 
+			}
+		
+		if (tmp.getBigger() == null && tmp.getSmaller()== null)
+		{
+			int a = tmp.getValue();
+			tmp = tmp.getPrevious(); 
+			if (tmp.getBigger().getValue() == a)
+			{
+				tmp.setBigger(null);
+				return; 
+			}
+			
+			if (tmp.getSmaller().getValue() == a)
+			{
+				tmp.setSmaller(null);
+				return; 
+			}
+			
+		}
+		
+	
+		while (tmp.getBigger() != null && tmp.getSmaller() != null)
+		{
+			
+			if (value < tmp.getValue())
+			{
+				tmp = tmp.getSmaller(); 
+				wert = -1; 
+			}
+		
+			if (value > tmp.getValue())
+			{
+				tmp = tmp.getBigger();
+				wert = 1; 
+				
+			}
+		
+		tmp= tmp.getPrevious(); 
+		
+		if (wert == -1)
+		{
+			tmp.setSmaller(null);
+			return; 
+		}
+		
+		if (wert == 1)
+		{
+			tmp.setBigger(null);
+			return; 
+		}
+		
+		
+		
+		
+		
+	}
+}
+	
+
+
+		
+ 

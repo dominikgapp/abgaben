@@ -1,0 +1,22 @@
+
+public class Main {
+
+	
+	public static void main (String [] args) {
+		
+		Tree baum = new Tree(); 
+		
+		//5 sollt der Stamm ganz oben sein.
+		for (int i =5; i>=0; i--) {
+			baum.addValue(i);
+		}
+		
+		for (int i=6; i<=10; i++) {
+			baum.addValue(i);
+		}
+		
+		
+	
+		
+	}
+}

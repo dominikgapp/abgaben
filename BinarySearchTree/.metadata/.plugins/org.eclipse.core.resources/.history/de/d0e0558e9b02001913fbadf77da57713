@@ -1,0 +1,21 @@
+
+public class Tree <T>{
+	
+	
+	private Node<T> head = null; 
+	private Node<T> bigger = null; 
+	private Node<T> smaller = null; 
+	
+	
+	public void addValue (T value)
+	{
+		Node<T> node = new Node<>(value);
+		if (head == null) {
+			head = node;
+			return; 
+		} 
+		
+		
+	}
+
+}

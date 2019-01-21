@@ -1,0 +1,24 @@
+
+public class Main {
+
+	
+	public static void main (String [] args) {
+		
+		Tree baum = new Tree(); 
+		
+		baum.addValue(10);
+		baum.addValue(20);
+		baum.addValue(5);
+		baum.addValue(3);
+		baum.addValue(7);
+		baum.addValue(30);
+		baum.addValue(17);
+		
+		
+		Node x = baum.getNode(17); 
+		
+		System.out.println(x.getValue());
+	
+		
+	}
+}

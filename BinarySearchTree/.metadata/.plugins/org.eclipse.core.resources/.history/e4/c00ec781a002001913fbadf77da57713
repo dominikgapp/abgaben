@@ -1,0 +1,48 @@
+
+public class Tree {
+	
+	
+	private Node head = null; 
+	private Node bigger = null; 
+	private Node smaller = null; 
+	
+	
+	public void addValue (int value)
+	{
+		Node node = new Node(value);
+		if (head == null) {
+			head = node;
+			return; 
+		} 
+		
+		int count = 0; 
+		Node tmp = head; 
+		while (tmp.getValue() < value) {	
+			
+			count = count +1; 
+			tmp = tmp.getBigger(); 
+		}
+		
+		for (int i = 0; i<=count -1; i++)
+		{
+			tmp = tmp.getBigger(); 
+		}
+		
+		tmp.setbigger(node);
+		
+		for (int i = 0; i<=count; i++)
+		{
+			tmp = tmp.getBigger(); 
+		}
+		 
+		if (tmp.getValue() < node.getValue()) {
+			node.setSmaller(tmp);
+		}
+		
+		if (tmp.getValue() > node.getValue()) {
+			node.setbigger(tmp);
+		}
+		
+	}
+
+}

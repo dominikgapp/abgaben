@@ -1,0 +1,57 @@
+
+public class Tree {
+	
+	
+	private Node head = null; 
+	
+	public Tree () {
+		
+	}
+	
+	public void addValue (int value)
+	{
+		//erstes Element 
+		Node node = new Node(value);
+		if (head == null) {
+			head = node;
+			return; 
+		} 
+		
+		//weitere Elemente 
+		Node tmp = head;
+		while (true) {
+			
+			if (node.getValue() < tmp.getValue() && tmp.getSmaller() == null) {
+				tmp.setSmaller(node);
+				break; }
+			
+			if (node.getValue() > tmp.getValue() && tmp.getBigger() == null) {
+				tmp.setBigger(node);
+				break; }  
+			
+			if (node.getValue() < tmp.getValue() && tmp.getSmaller() != null) tmp = tmp.getSmaller(); 
+			if (node.getValue() > tmp.getValue() && tmp.getBigger() != null) tmp = tmp.getBigger(); 
+			
+		}
+		
+		}
+		
+	
+	public Node getNode (int value)
+	{
+		Node tmp = head; 
+		
+		while (value != tmp.getValue())
+		{
+			if (value < tmp.getValue()) tmp = tmp.getSmaller(); 
+			if (value > tmp.getValue()) tmp = tmp.getBigger(); 
+		}
+		
+		return tmp; 
+	}
+}
+	
+
+
+		
+ 
